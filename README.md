@@ -16,7 +16,7 @@ This is a demo showing how to configure faye to run in your rails app as middlwa
 
 3.  Put any middleware extensions you'd like into the `app/middleware` folder
 
-4.  Run the server in production with `rails s -E production` (you can't use faye in development because some development middleware breaks faye)
+4.  Run the server in production with `rails s -e production` (you can't use faye in development because some development middleware breaks faye)
 
 Note:  To allow the rails app to server static assets in production without the need for a proxy, config/environments/production.rb was tweaked.
 
