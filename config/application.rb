@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module FayeRailsExample
   class Application < Rails::Application
-    config.middleware.use Faye::RackAdapter, :mount => '/faye', :timeout => 25
+    config.middleware.use Faye::RackAdapter, :mount => '/faye', :timeout => 25  do |bayeux|
+      bayeux.add_extension(FayeJoy.new)
+    end
   end
 end

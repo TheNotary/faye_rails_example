@@ -1,0 +1,65 @@
+<html>
+
+<head>
+
+  <script src='faye/client.js'></script>
+</head>
+<body>
+
+
+<script>
+fayeUtility = { client: ""};
+fayeUtility.createNewChatClient = function(serverAddress, chatPort){
+  var client = new Faye.Client('http://' + serverAddress + ':' + chatPort.toString() + '/faye', {
+    timeout: 120
+  });
+  client.bind('transport:down', function() {
+    printToConsole("Connection to Faye failed");
+    //alert('Warning:  The connection has been lost.' + betaMessage);
+    //fayeUtility.setStatusToFailed();
+  });
+  client.bind('transport:up', function() {
+    printToConsole("Connected to Faye");
+    //fayeUtility.setStatusToConnected();
+  });
+
+  return client;
+}
+
+
+var port = location.port;
+
+var client = fayeUtility.createNewChatClient("localhost", port);
+var channel = "0001";
+
+
+function printToConsole(msg){
+  var el = document.getElementById('console');
+  el.innerHTML = el.innerHTML + "<div>" + msg + "</div>";
+}
+
+subscription = client.subscribe('/' + channel, function(message) {
+  printToConsole(JSON.stringify(message));
+});
+
+function publish_message_to_faye(msg){
+  client.publish('/' + channel, {text: msg});
+}
+
+</script> 
+
+
+<h1>Simple Faye Javascript Example</h1>
+
+<div>
+  <p>All that's needed is the faye/client.js library and it's easy to implement some javascript to work with faye in the browser.  </p>
+  <p>View the page's source code to see an example.</p>
+</div>
+
+<button onclick="publish_message_to_faye('Hello Server')">Click to transmit Message to all subscribers</button>
+
+<h6>Messages from faye server go here:</h6>
+<div id="console"></div>
+</body>
+
+</html>

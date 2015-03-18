@@ -6,11 +6,19 @@ This is a demo showing how to configure faye to run in your rails app as middlwa
 == Integration
 
 1.  Add faye and thin to the Gemfile
-2.  Add a line to config.ru to use faye
-3.  Add in middleware extensions to app/middlewares
-4.  Run the server with `rackup -E production`
 
+    gem 'faye'
+    gem 'thin'
 
+2.  Add a line to config/application.rb to use faye middleware
+
+    config.middleware.use Faye::RackAdapter, :mount => '/faye', :timeout => 25
+
+3.  Put any middleware extensions you'd like into the app/middleware folder
+
+4.  Run the server in production with `rails s -E production` (you can't use faye in development because some development middleware breaks faye)
+
+Note:  To allow the rails app to server static assets in production without the need for a proxy, config/environments/production.rb was tweaked.
 
 == References
 
