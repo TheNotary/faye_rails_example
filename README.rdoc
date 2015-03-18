@@ -1,28 +1,20 @@
-== README
+== About
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is a demo showing how to configure faye to run in your rails app as middlware.  
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== Integration
+
+1)  Add faye and thin to the Gemfile
+2)  Add a line to config.ru to use faye
+3)  Add in middleware extensions to app/middlewares
+4)  Run the server with `rackup -E production`
+
+
+
+== References
+
+* http://guides.rubyonrails.org/rails_on_rack.html#internal-middleware-stack
+* http://faye.jcoglan.com/ruby.html
+
+
