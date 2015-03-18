@@ -22,7 +22,8 @@ Note:  To allow the rails app to server static assets in production without the 
 
 == References
 
-* http://guides.rubyonrails.org/rails_on_rack.html#internal-middleware-stack
+* http://stackoverflow.com/questions/3428343/where-do-you-put-your-rack-middleware-files-and-requires
+* http://guides.rubyonrails.org/rails_on_rack.html
 * http://faye.jcoglan.com/ruby.html
 
 
