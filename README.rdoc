@@ -5,10 +5,10 @@ This is a demo showing how to configure faye to run in your rails app as middlwa
 
 == Integration
 
-1)  Add faye and thin to the Gemfile
-2)  Add a line to config.ru to use faye
-3)  Add in middleware extensions to app/middlewares
-4)  Run the server with `rackup -E production`
+1.  Add faye and thin to the Gemfile
+2.  Add a line to config.ru to use faye
+3.  Add in middleware extensions to app/middlewares
+4.  Run the server with `rackup -E production`
 
 
 
