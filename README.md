@@ -2,6 +2,8 @@
 
 This is a demo showing how to configure faye to run in your rails app as middlware.  
 
+You can see a live demo of this repo on heroku at [rails-faye-example.herokuapp.com](https://rails-faye-example.herokuapp.com)
+
 
 ## Integration
 
