@@ -10,7 +10,7 @@
 <script>
 fayeUtility = { client: ""};
 fayeUtility.createNewChatClient = function(serverAddress, chatPort){
-  var client = new Faye.Client('http://' + serverAddress + ':' + chatPort.toString() + '/faye', {
+  var client = new Faye.Client('//' + serverAddress + ':' + chatPort.toString() + '/faye', {
     timeout: 120
   });
   client.bind('transport:down', function() {
