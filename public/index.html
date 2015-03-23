@@ -28,8 +28,9 @@ fayeUtility.createNewChatClient = function(serverAddress, chatPort){
 
 
 var port = location.port;
+var hostname = location.hostname;
 
-var client = fayeUtility.createNewChatClient("localhost", port);
+var client = fayeUtility.createNewChatClient(hostname, port);
 var channel = "0001";
 
 
