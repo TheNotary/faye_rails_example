@@ -10,7 +10,7 @@ This is a demo showing how to configure faye to run in your rails app as middlwa
         gem 'faye'
         gem 'thin'
 
-2.  Add a line to `config/application.rb` to use faye middleware
+2.  Add a line to `config/application.rb` to use faye middleware (also add to config.ru, heroku may look there)
 
         config.middleware.use Faye::RackAdapter, :mount => '/faye', :timeout => 25
 
